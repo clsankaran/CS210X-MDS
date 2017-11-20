@@ -1,6 +1,6 @@
 import java.util.*;
 import com.cs210x.*;
- 
+
 /**
  * Class to deduce the identity of mystery data structures.
  */
@@ -29,19 +29,18 @@ public class ExperimentRunner {
                 mysteryDataStructures[k].add(new Integer(i));
             }
             for (int j = 0; j < N.length; j++) {
-                final int elementToFind = random.nextInt(N[j]);
-
                 // This is an example of measuring an operation's time cost *without* averaging -- the times will vary wildly!
                 // You really should average...
                 long total = 0;
                 for (int i = 0; i < 1000; i++) {
+                    final int elementToFind = random.nextInt(N[j]);
                     final long start = CPUClock.getNumTicks();
                     // Time how long it takes to find a single, randomly chosen item stored in the mystery data structure
                     final boolean result = mysteryDataStructures[k].contains(elementToFind);
                     final long end = CPUClock.getNumTicks();
                     total = total + (end - start);
                 }
-                final long elapsedAverage = total / mysteryDataStructures.length;
+                final long elapsedAverage = total / 1000;
 
                 // Write a table of numbers (for different N -- here, we are just showing one value for simplicity) showing
                 // the relationship between N and the time-cost associated with searching (with the contains method) through
