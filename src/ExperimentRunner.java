@@ -1,6 +1,6 @@
 import java.util.*;
 import com.cs210x.*;
-
+ 
 /**
  * Class to deduce the identity of mystery data structures.
  */
