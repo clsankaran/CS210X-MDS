@@ -8,7 +8,7 @@ public class ExperimentRunner {
     private static final int NUM_DATA_STRUCTURES_TO_DEDUCE = 5;
 
     public static void main (String[] args) {
-        final String cs210XTeamIDForProject4 = "ahoque"; // TODO CHANGE THIS TO THE TEAM ID YOU USE TO SUBMIT YOUR PROJECT3 ON INSTRUCT-ASSIST.
+        final String cs210XTeamIDForProject4 = "ahoque";
 
         // Fetch the collections whose type you must deduce.
         // Note -- you are free to change the type parameter from Integer to whatever you want. In this
