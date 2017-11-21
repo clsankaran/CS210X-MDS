@@ -21,33 +21,34 @@ public class ExperimentRunner {
         }
 
         // Write your code here...
-        for (int k = 0; k <=4; k++) {
+        for (int mdtNum = 1; mdtNum <= NUM_DATA_STRUCTURES_TO_DEDUCE; mdtNum++) { // get all 5 data structures
             final Random random = new Random();  // instantiate a random number generator
-            final int N[] = {1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000};
-            ;
-            for (int i = 0; i < N[N.length - 1]; i++) {  // populate the mystery data structure with N numbers
-                mysteryDataStructures[k].add(new Integer(i));
-            }
-            for (int j = 0; j < N.length; j++) {
+            final int N[] = {1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 
+            		200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000};
+            for (int i = 0; i < N.length; i++) {
+	            for (int j = 0; j < N[i]; j++) {  // populate the mystery data structure with N numbers 0 to N-1
+	                mysteryDataStructures[mdtNum-1].add(new Integer(j));
+	            }
                 // This is an example of measuring an operation's time cost *without* averaging -- the times will vary wildly!
                 // You really should average...
                 long total = 0;
-                for (int i = 0; i < 1000; i++) {
-                    final int elementToFind = random.nextInt(N[j]);
+                int numTimesRun = 1000;
+                for (int h = 0; h < numTimesRun; h++) {
+                    final int elementToFind = random.nextInt(N[i]) + 1; // somtimes not find it
                     final long start = CPUClock.getNumTicks();
                     // Time how long it takes to find a single, randomly chosen item stored in the mystery data structure
-                    final boolean result = mysteryDataStructures[k].contains(elementToFind);
+                    final boolean result = mysteryDataStructures[mdtNum-1].contains(elementToFind);
                     final long end = CPUClock.getNumTicks();
                     total = total + (end - start);
                 }
-                final long elapsedAverage = total / 1000;
-
-                // Write a table of numbers (for different N -- here, we are just showing one value for simplicity) showing
-                // the relationship between N and the time-cost associated with searching (with the contains method) through
-                // a collection of N data.
-                System.out.println("Mystery Function " + k);
-                System.out.println("N\tT (contains(o))");
-                System.out.println(N[j] + "\t" + elapsedAverage);
+                final long elapsedAverage = total / numTimesRun;
+	
+	                // Write a table of numbers (for different N -- here, we are just showing one value for simplicity) showing
+	                // the relationship between N and the time-cost associated with searching (with the contains method) through
+	                // a collection of N data.
+	                System.out.println("Mystery Function " + mdtNum);
+	                System.out.println("N\tT (contains(o))");
+	                System.out.println(N[i] + "\t" + elapsedAverage);
             }
         }
     }
