@@ -1,6 +1,6 @@
 import java.util.*;
 
-import com.cs210x.*; 
+import com.cs210x.*;
 
 /**
  * Class to deduce the identity of mystery data structures.
@@ -32,7 +32,7 @@ public class ExperimentRunner {
 		final Random random = new Random(); // instantiate a random number generator
 		for (int mdtNum = 0; mdtNum < NUM_DATA_STRUCTURES_TO_DEDUCE; mdtNum++) { // get all 5 data structures
 			System.out.println("Mystery Function " + mdtNum);
-			//contain
+			// contain
 			System.out.println("N\tT (contains(o))");
 			for (int i = 0; i < Ns.length; i++) {
 				long total = 0;
@@ -49,7 +49,7 @@ public class ExperimentRunner {
 				final long elapsedAverage = total / NUM_TIMES_RUN;
 				System.out.println(Ns[i] + "\t" + elapsedAverage);
 			}
-			//remove
+			// remove
 			System.out.println("N\tT (remove(o))");
 			for (int i = 0; i < Ns.length; i++) {
 				long total = 0;
@@ -67,7 +67,7 @@ public class ExperimentRunner {
 				final long elapsedAverage = total / NUM_TIMES_RUN;
 				System.out.println(Ns[i] + "\t" + elapsedAverage);
 			}
-			//add
+			// add
 			System.out.println("N\tT (add(o))");
 			for (int i = 0; i < Ns.length; i++) {
 				long total = 0;
@@ -87,9 +87,19 @@ public class ExperimentRunner {
 		}
 	}
 
+	/**
+	 * Populates a data structure with numElemnts integers [0,numElements -1]
+	 * 
+	 * @param mdt
+	 *            array of mystery data types
+	 * @param mdtIndex
+	 *            index of mystery data types array
+	 * @param numElements
+	 *            num elements to populate with
+	 */
 	private static void populate(Collection210X<Integer>[] mdt, int mdtIndex, int numElements) {
 		for (int j = 0; j < numElements; j++) {
 			mdt[mdtIndex].add(new Integer(j));
-		} 
-	} 
+		}
+	}
 }
