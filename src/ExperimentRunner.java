@@ -8,6 +8,8 @@ import com.cs210x.*;
 public class ExperimentRunner {
     private static final int NUM_DATA_STRUCTURES_TO_DEDUCE = 5;
     private static final int NUM_TIMES_RUN = 1000;
+    private static final int[] Ns = {1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 
+    		200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000};
 
     public static void main (String[] args) {
         final String cs210XTeamIDForProject4 = "ahoque";
@@ -24,8 +26,7 @@ public class ExperimentRunner {
         // Write your code here...
         for (int mdtNum = 0; mdtNum < NUM_DATA_STRUCTURES_TO_DEDUCE; mdtNum++) { // get all 5 data structures
             final Random random = new Random();  // instantiate a random number generator
-            final int[] Ns = {1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 
-            		200, 300, 400, 500, 600, 700, 800, 900, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000};
+            
             System.out.println("Mystery Function " + mdtNum);
             System.out.println("N\tT (contains(o))");
             for (int i = 0; i < Ns.length; i++) {
