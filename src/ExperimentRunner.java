@@ -29,10 +29,10 @@ public class ExperimentRunner {
 					i, new Integer(0));
 		}
 		// Write your code here...
-		for (int mdtNum = 0; mdtNum < NUM_DATA_STRUCTURES_TO_DEDUCE; mdtNum++) { // get all 5 data structures
-			System.out.println("Mystery Function " + mdtNum);
+		for (int mdsNum = 0; mdsNum < NUM_DATA_STRUCTURES_TO_DEDUCE; mdsNum++) { // get all 5 data structures
+			System.out.println("Mystery Function " + mdsNum);
 			for (int k = 0; k < 3; k++) {
-				doOperations(mysteryDataStructures, mdtNum, k); // do all 3 operations
+				doOperations(mysteryDataStructures, mdsNum, k); // do all 3 operations
 			}
 		}
 	}
@@ -40,31 +40,31 @@ public class ExperimentRunner {
 	/**
 	 * Populates a data structure with numElemnts integers [0,numElements -1]
 	 * 
-	 * @param mdt
+	 * @param mds
 	 *            array of mystery data types
-	 * @param mdtIndex
+	 * @param mdsIndex
 	 *            index of mystery data types array
 	 * @param numElements
 	 *            num elements to populate with
 	 */
-	private static void populate(Collection210X<Integer>[] mdt, int mdtIndex, int numElements) {
-		mdt[mdtIndex].clear();
+	private static void populate(Collection210X<Integer>[] mds, int mdsIndex, int numElements) {
+		mds[mdsIndex].clear();
 		for (int j = 0; j < numElements; j++) {
-			mdt[mdtIndex].add(new Integer(j));
+			mds[mdsIndex].add(new Integer(j));
 		}
 	}
 
 	/**
 	 * Adds, removes, or searches based on numOperation
 	 * 
-	 * @param mdt
+	 * @param mds
 	 *            array of mystery data types
-	 * @param mdtIndex
+	 * @param mdsIndex
 	 *            index of mystery data tyeps array
 	 * @param numOperation
 	 *            which operation to do
 	 */
-	private static void doOperations(Collection210X<Integer>[] mdt, int mdtIndex, int numOperation) {
+	private static void doOperations(Collection210X<Integer>[] mds, int mdsIndex, int numOperation) {
 		final Random random = new Random(); // instantiate a random number generator
 		if (numOperation == 0) {
 			System.out.println("N\tT (add(o))");
@@ -77,18 +77,18 @@ public class ExperimentRunner {
 		for (int i = 0; i < Ns.length; i++) {
 			long total = 0;
 			for (int h = 0; h < NUM_TIMES_RUN; h++) {
-				populate(mdt, mdtIndex, Ns[i]);
+				populate(mds, mdsIndex, Ns[i]);
 				final int elementToFind = random.nextInt(Ns[i]) + 1; // sometimes not in list
 				// final int elementToFind = Ns[i] + 1; // worst case for heap
 				final long start = CPUClock.getNumTicks();
 				// Time how long it takes to find a single, randomly chosen item stored in the
 				// mystery data structure
 				if (numOperation == 0) {
-					mdt[mdtIndex].add(elementToFind);
+					mds[mdsIndex].add(elementToFind);
 				} else if (numOperation == 1) {
-					mdt[mdtIndex].remove(elementToFind);
+					mds[mdsIndex].remove(elementToFind);
 				} else {
-					mdt[mdtIndex].contains(elementToFind);
+					mds[mdsIndex].contains(elementToFind);
 				}
 				final long end = CPUClock.getNumTicks();
 				total = total + (end - start);
