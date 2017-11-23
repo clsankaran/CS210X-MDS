@@ -79,6 +79,7 @@ public class ExperimentRunner {
 			for (int h = 0; h < NUM_TIMES_RUN; h++) {
 				populate(mdt, mdtIndex, Ns[i]);
 				final int elementToFind = random.nextInt(Ns[i]) + 1; // sometimes not in list
+				// final int elementToFind = Ns[i] + 1; // worst case for heap
 				final long start = CPUClock.getNumTicks();
 				// Time how long it takes to find a single, randomly chosen item stored in the
 				// mystery data structure
