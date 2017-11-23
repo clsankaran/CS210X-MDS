@@ -8,6 +8,7 @@ import com.cs210x.*;
 public class ExperimentRunner {
 	private static final int NUM_DATA_STRUCTURES_TO_DEDUCE = 5;
 	private static final int NUM_TIMES_RUN = 1000;
+	private static final int NUM_OPERATIONS = 3;
 	private static final int[] Ns = { 1, 2, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 200, 300, 400, 500, 600, 700,
 			800, 900, 1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000, 10000 };
 
@@ -31,7 +32,7 @@ public class ExperimentRunner {
 		// Write your code here...
 		for (int mdsNum = 0; mdsNum < NUM_DATA_STRUCTURES_TO_DEDUCE; mdsNum++) { // get all 5 data structures
 			System.out.println("Mystery Function " + mdsNum);
-			for (int k = 0; k < 3; k++) {
+			for (int k = 0; k < NUM_OPERATIONS; k++) {
 				doOperations(mysteryDataStructures, mdsNum, k); // do all 3 operations
 			}
 		}
